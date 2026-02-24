@@ -1,231 +1,332 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Enchapes de Madera Buenos Aires</title>
-<style>
-body{
-    margin:0;
-    font-family: Arial, Helvetica, sans-serif;
-    background-image: url('https://images.unsplash.com/photo-1519710164239-da123dc03ef4');
-    background-size: cover;
-    background-attachment: fixed;
-    color:#fff;
-}
-header{
-    background: rgba(0,0,0,0.7);
-    padding:20px;
-    text-align:center;
-}
-nav a{
-    color:#fff;
-    margin:10px;
-    text-decoration:none;
-    font-weight:bold;
-}
-section{
-    background: rgba(0,0,0,0.75);
-    margin:20px;
-    padding:20px;
-    border-radius:10px;
-}
-h2{
-    color:#f4c542;
-}
-input, textarea, select{
-    width:100%;
-    padding:8px;
-    margin:5px 0;
-    border-radius:5px;
-    border:none;
-}
-button{
-    padding:10px;
-    background:#f4c542;
-    border:none;
-    border-radius:5px;
-    cursor:pointer;
-}
-footer{
-    background: rgba(0,0,0,0.8);
-    text-align:center;
-    padding:20px;
-}
-.thermometer{
-    width:50px;
-    height:200px;
-    background:#ccc;
-    border-radius:25px;
-    margin:auto;
-    position:relative;
-}
-.level{
-    width:100%;
-    background:red;
-    position:absolute;
-    bottom:0;
-    border-radius:25px;
-}
-.whatsapp{
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    background:#25D366;
-    color:#fff;
-    padding:15px;
-    border-radius:50%;
-    font-size:20px;
-    text-decoration:none;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enchapes de Madera Buenos Aires - Calidad y Elegancia</title>
+    <style>
+        :root {
+            --primary-color: #5d4037;
+            --secondary-color: #8d6e63;
+            --accent-color: #ffb300;
+            --light-bg: #f5f5f5;
+            --text-dark: #212121;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--light-bg);
+        }
+
+        /* Hero Section con Imagen de Fondo */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1513519245088-0e12902e5a38?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content h1 { font-size: 3.5rem; margin-bottom: 10px; }
+        .hero-content p { font-size: 1.5rem; }
+
+        /* Navegación */
+        nav {
+            background: var(--primary-color);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        /* Secciones Generales */
+        section { padding: 60px 10%; border-bottom: 1px solid #ddd; }
+        h2 { color: var(--primary-color); text-align: center; margin-bottom: 40px; }
+
+        /* Tipos de Enchapes - Grid */
+        .enchapes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .card:hover { transform: translateY(-5px); }
+
+        /* Termómetro de Encuesta */
+        .thermometer-container {
+            width: 100%;
+            background: #eee;
+            border-radius: 20px;
+            height: 30px;
+            margin: 20px 0;
+            position: relative;
+        }
+        .thermometer-fill {
+            height: 100%;
+            background: linear-gradient(to right, #ffeb3b, #ff9800, #f44336);
+            width: 94%; /* Porcentaje de satisfacción */
+            border-radius: 20px;
+            text-align: right;
+            color: white;
+            padding-right: 10px;
+            font-weight: bold;
+        }
+
+        /* Cuadro de Honor */
+        .honor-roll {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            background: #fff;
+            padding: 20px;
+        }
+        .worker { text-align: center; margin: 10px; }
+        .worker img { width: 100px; height: 100px; border-radius: 50%; border: 3px solid var(--accent-color); }
+
+        /* Grupos de SEO / Anuncios */
+        .seo-box {
+            background: #e0e0e0;
+            padding: 20px;
+            font-size: 0.8rem;
+            color: #666;
+            margin-top: 50px;
+        }
+
+        /* Formulario */
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        input, textarea, select {
+            margin-bottom: 15px;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background: var(--primary-color);
+            color: white;
+            padding: 15px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* Botón WhatsApp */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25d366;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+
+        .testimonials { font-style: italic; background: #fff8e1; padding: 20px; border-radius: 10px; }
+
+    </style>
 </head>
 <body>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17968841620"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'AW-17968841620');
-</script>
-<header>
-<h1>Enchapes de Madera Buenos Aires</h1>
-<nav>
-<a href="#inicio">Inicio</a>
-<a href="#personas">Personas</a>
-<a href="#quienes">Quiénes Somos</a>
-<a href="#historia">Historia</a>
-<a href="#trayectoria">Trayectoria</a>
-<a href="#objetivos">Objetivos</a>
-<a href="#tipos">Tipos de Enchapes</a>
-<a href="#ubicacion">Ubícanos</a>
-<a href="#contacto">Contáctanos</a>
-</nav>
-</header>
+    <!-- Hero -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Enchapes de Madera Premium</h1>
+            <p>Elegancia Natural para sus Proyectos en Buenos Aires</p>
+        </div>
+    </header>
 
-<section id="inicio">
-<h2>Inicio</h2>
-<p>Somos una empresa líder en enchapes de madera en Buenos Aires, Argentina. Ofrecemos soluciones innovadoras, resistentes y decorativas para interiores y exteriores. Nuestros enchapes destacan por su calidad, durabilidad y elegancia natural.</p>
-</section>
+    <!-- Navegación -->
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#personas">Personas</a>
+        <a href="#quienes-somos">Quiénes Somos</a>
+        <a href="#historia">Historia</a>
+        <a href="#trayectoria">Trayectoria</a>
+        <a href="#objetivos">Objetivos</a>
+        <a href="#tipos">Tipos de Enchapes</a>
+        <a href="#ubicacion">Ubícanos</a>
+        <a href="#contacto">Contáctanos</a>
+    </nav>
 
-<section id="personas">
-<h2>Personas</h2>
-<p>Nuestro equipo está conformado por carpinteros profesionales, diseñadores industriales, arquitectos y asesores comerciales comprometidos con brindar excelencia y atención personalizada.</p>
-</section>
+    <!-- Inicio / Intro Extensa -->
+    <section id="inicio">
+        <h2>Bienvenido a la Excelencia en Madera</h2>
+        <p>En el corazón de la industria maderera de <strong>Argentina</strong>, nuestra planta en <strong>Buenos Aires</strong> se especializa en la transformación de trozas seleccionadas en finas láminas de belleza inigualable. El enchape de madera no es solo un revestimiento, es una declaración de estilo que combina la calidez de lo natural con la eficiencia de los tableros modernos. Ofrecemos soluciones integrales para arquitectos, diseñadores de interiores y fabricantes de muebles de alta gama.</p>
+    </section>
 
-<section id="quienes">
-<h2>Quiénes Somos</h2>
-<p>Somos especialistas en enchapes de madera natural, reconstituida y sintética. Nos dedicamos a transformar espacios residenciales y comerciales con acabados de alta calidad y diseño moderno.</p>
-</section>
+    <!-- Quiénes Somos, Historia, Trayectoria -->
+    <section id="quienes-somos" style="background: white;">
+        <div style="display: flex; flex-wrap: wrap; gap: 40px;">
+            <div style="flex: 1; min-width: 300px;">
+                <h3>Quiénes Somos</h3>
+                <p>Somos una empresa familiar con raíces profundas en la carpintería tradicional, evolucionada hacia la tecnología de punta en enchapados decorativos.</p>
+                <h3>Historia</h3>
+                <p>Nuestra historia comienza en 1975, en un pequeño taller de zona sur, donde el amor por la veta de la madera nos llevó a buscar métodos para optimizar este recurso tan noble. Hoy, 50 años después, lideramos el mercado nacional.</p>
+            </div>
+            <div style="flex: 1; min-width: 300px;">
+                <h3>Trayectoria y Objetivos</h3>
+                <p>Hemos participado en los proyectos arquitectónicos más emblemáticos de CABA y el Gran Buenos Aires. Nuestro objetivo es alcanzar la huella de carbono cero para 2030, promoviendo el uso de maderas de bosques implantados y adhesivos libres de formaldehído.</p>
+            </div>
+        </div>
+    </section>
 
-<section id="historia">
-<h2>Historia</h2>
-<p>Fundada en Buenos Aires, nuestra empresa nació con el objetivo de ofrecer enchapes premium accesibles al mercado argentino. Con el paso de los años, nos consolidamos como referente en el sector.</p>
-</section>
+    <!-- Tipos de Enchapes -->
+    <section id="tipos">
+        <h2>Nuestros Tipos de Enchapes</h2>
+        <div class="enchapes-grid">
+            <div class="card">
+                <h4>Chapa de Madera Natural</h4>
+                <p>Obtenida directamente del tronco: Roble, Cerezo, Nogal, Paraíso y Guatambú. Cada hoja es única e irrepetible.</p>
+            </div>
+            <div class="card">
+                <h4>Chapa Reconstituida</h4>
+                <p>Maderas de crecimiento rápido procesadas para imitar especies exóticas (Wenge, Ébano) con una uniformidad perfecta en veta y color.</p>
+            </div>
+            <div class="card">
+                <h4>Chapas de Raíz (Lopes)</h4>
+                <p>Cortes especiales de la base del árbol que presentan dibujos arremolinados, ideales para mobiliario de lujo y tableros de instrumentos.</p>
+            </div>
+            <div class="card">
+                <h4>Enchapes de Gran Espesor</h4>
+                <p>Para aplicaciones de alto tránsito como pisos o revestimientos de pared que requieren mayor resistencia mecánica.</p>
+            </div>
+        </div>
+    </section>
 
-<section id="trayectoria">
-<h2>Trayectoria</h2>
-<p>Más de 15 años de experiencia en proyectos residenciales, corporativos y comerciales respaldan nuestra trayectoria. Hemos trabajado con constructoras y arquitectos reconocidos del país.</p>
-</section>
+    <!-- Cuadro de Honor -->
+    <section id="personas" style="background: #fdfdfd;">
+        <h2>Cuadro de Honor - Nuestro Equipo</h2>
+        <div class="honor-roll">
+            <div class="worker">
+                <img src="https://via.placeholder.com/100" alt="Juan Pérez">
+                <p><strong>Juan Pérez</strong><br>Maestro Enchapador<br>25 años de servicio</p>
+            </div>
+            <div class="worker">
+                <img src="https://via.placeholder.com/100" alt="Ana Gómez">
+                <p><strong>Ana Gómez</strong><br>Control de Calidad<br>Empleado del Mes</p>
+            </div>
+            <div class="worker">
+                <img src="https://via.placeholder.com/100" alt="Carlos Ruíz">
+                <p><strong>Carlos Ruíz</strong><br>Logística Buenos Aires<br>Premio Excelencia</p>
+            </div>
+        </div>
+    </section>
 
-<section id="objetivos">
-<h2>Objetivos</h2>
-<ul>
-<li>Ofrecer productos de máxima calidad.</li>
-<li>Innovar en diseños y texturas.</li>
-<li>Garantizar satisfacción total del cliente.</li>
-<li>Promover el uso sostenible de la madera.</li>
-</ul>
-</section>
+    <!-- Termómetro de Satisfacción y Mensajes -->
+    <section>
+        <h2>Satisfacción de Nuestros Clientes</h2>
+        <div class="thermometer-container">
+            <div class="thermometer-fill">94% SATISFACCIÓN</div>
+        </div>
+        <div class="testimonials">
+            <p>"La calidad del Paraíso enchapado que compramos para el hotel en Puerto Madero fue excepcional. Entrega puntual en Buenos Aires." - <strong>Arq. Marcos Di Luca</strong></p>
+            <p>"Increíble atención y variedad de chapas reconstituidas. Transformaron mis diseños." - <strong>Muebles Modernos S.A.</strong></p>
+        </div>
+    </section>
 
-<section id="tipos">
-<h2>Tipos de Enchapes</h2>
-<ul>
-<li>Enchapes Naturales (Roble, Cedro, Nogal)</li>
-<li>Enchapes Reconstituidos</li>
-<li>Enchapes Laminados</li>
-<li>Enchapes Decorativos 3D</li>
-<li>Enchapes para Exteriores Tratados</li>
-</ul>
-</section>
+    <!-- Ubícanos y Contacto -->
+    <section id="ubicacion">
+        <h2>Ubícanos en Buenos Aires</h2>
+        <p style="text-align: center;">Estamos ubicados en la zona industrial de <strong>Avellaneda / Quilmes, Provincia de Buenos Aires</strong>.<br>
+        Showroom central: Calle Falsa 123, CABA (Cita previa).</p>
+        
+        <div id="contacto" style="margin-top: 40px;">
+            <h3>Solicitá Presupuesto de Enchapes</h3>
+            <form>
+                <input type="text" placeholder="Nombre Completo" required>
+                <input type="email" placeholder="Email de Contacto" required>
+                <select>
+                    <option value="">Tipo de madera de interés</option>
+                    <option value="roble">Roble Americano</option>
+                    <option value="paraiso">Paraíso</option>
+                    <option value="guatambu">Guatambú</option>
+                    <option value="reconstituida">Chapa Técnica Reconstituida</option>
+                </select>
+                <textarea rows="4" placeholder="Contanos sobre tu proyecto (medidas, cantidad de hojas, base MDF/Aglomerado)"></textarea>
+                <button type="submit">ENVIAR CONSULTA</button>
+            </form>
+        </div>
+    </section>
 
-<section>
-<h2>Grupo de Anuncios</h2>
-<p>✔ Enchapes Premium en Buenos Aires<br>
-✔ Instalación Profesional Garantizada<br>
-✔ Diseños Exclusivos en Madera Natural<br>
-✔ Presupuestos Sin Cargo</p>
-</section>
+    <!-- Registro de Clientes Nuevos -->
+    <section id="registro" style="background: #eee;">
+        <h2>Registro de Nuevos Clientes / Distribuidores</h2>
+        <form style="background: white; padding: 30px; border-radius: 10px;">
+            <p>Unite a nuestra red de beneficios para profesionales.</p>
+            <input type="text" placeholder="Razón Social / Nombre">
+            <input type="text" placeholder="CUIT / Documento">
+            <input type="text" placeholder="Dirección en Argentina">
+            <input type="tel" placeholder="Teléfono de contacto">
+            <button type="submit" style="background: var(--accent-color); color: #333;">REGISTRARME AHORA</button>
+        </form>
+    </section>
 
-<section>
-<h2>Grupo de Palabras Claves</h2>
-<p>enchapes de madera, revestimientos en madera, enchapes en Buenos Aires, madera natural argentina, enchapes decorativos, paneles de madera, carpintería profesional.</p>
-</section>
+    <!-- Grupos de Anuncios y Palabras Clave (SEO Section) -->
+    <div class="seo-box">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+            <div>
+                <strong>Grupo de Anuncios: Venta de Chapas Naturales</strong>
+                <ul>
+                    <li>Palabras Clave: chapas de madera natural, enchapes buenos aires, placas enchapadas paraíso, maderas finas argentina.</li>
+                </ul>
+            </div>
+            <div>
+                <strong>Grupo de Anuncios: Carpintería Profesional</strong>
+                <ul>
+                    <li>Palabras Clave: insumos para carpintería, mdf enchapado precios, cantos de madera, terminaciones en madera.</li>
+                </ul>
+            </div>
+            <div>
+                <strong>Grupo de Anuncios: Diseño de Interiores</strong>
+                <ul>
+                    <li>Palabras Clave: revestimientos de madera, paneles decorativos, madera de lujo caba, decoración sustentable.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
-<section>
-<h2>Encuesta de Satisfacción</h2>
-<div class="thermometer">
-<div class="level" style="height:85%;"></div>
-</div>
-<p style="text-align:center;">Nivel de satisfacción: 85%</p>
-</section>
+    <!-- Botón WhatsApp -->
+    <a href="https://wa.me/5491100000000" class="whatsapp-btn" target="_blank">
+        💬 Asistente WhatsApp
+    </a>
 
-<section>
-<h2>Mensajes de Nuestros Clientes</h2>
-<p>"Excelente calidad y atención personalizada." ⭐⭐⭐⭐⭐</p>
-<p>"Mi casa quedó espectacular con los enchapes de roble." ⭐⭐⭐⭐⭐</p>
-<p>"Profesionales responsables y cumplidores." ⭐⭐⭐⭐⭐</p>
-</section>
-
-<section>
-<h2>Cuadro de Honor</h2>
-<ul>
-<li>Juan Pérez - Maestro Carpintero</li>
-<li>María López - Diseñadora de Interiores</li>
-<li>Carlos Gómez - Instalador Senior</li>
-</ul>
-</section>
-
-<section id="contacto">
-<h2>Formulario de Consulta sobre Enchapes</h2>
-<form>
-<input type="text" placeholder="Nombre completo" required>
-<input type="email" placeholder="Correo electrónico" required>
-<select>
-<option>Tipo de Enchape de Interés</option>
-<option>Natural</option>
-<option>Reconstituido</option>
-<option>Laminado</option>
-</select>
-<textarea placeholder="Describe tu proyecto"></textarea>
-<button type="submit">Enviar Consulta</button>
-</form>
-</section>
-
-<section>
-<h2>Registro de Nuevos Clientes</h2>
-<form>
-<input type="text" placeholder="Nombre">
-<input type="text" placeholder="Apellido">
-<input type="email" placeholder="Email">
-<input type="tel" placeholder="Teléfono">
-<input type="text" placeholder="Dirección">
-<button type="submit">Registrarse</button>
-</form>
-</section>
-
-<section id="ubicacion">
-<h2>Ubícanos</h2>
-<p>Estamos ubicados en Buenos Aires, Argentina. Atendemos toda la provincia y alrededores.</p>
-</section>
-
-<footer>
-<p>© 2026 Enchapes de Madera Buenos Aires - Todos los derechos reservados</p>
-</footer>
-
-<a href="https://wa.me/5491112345678" class="whatsapp" target="_blank">W</a>
+    <footer style="background: #333; color: white; text-align: center; padding: 20px;">
+        <p>&copy; 2024 Enchapes Argentinos - Buenos Aires, Argentina. Todos los derechos reservados.</p>
+    </footer>
 
 </body>
 </html>
